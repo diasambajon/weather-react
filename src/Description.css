@@ -1,0 +1,19 @@
+div h2 {
+  font-size: 23px;
+}
+div h3 {
+  font-size: 15px;
+  line-height: 0;
+}
+div h3::first-letter {
+  text-transform: uppercase;
+}
+div h4 {
+  font-size: 15px;
+}
+.description {
+  padding-left: 20px;
+  line-height: 0;
+  padding-top: 0;
+  font-size: 13px;
+}
