@@ -3,8 +3,8 @@ import React from "react";
 import "./Temperature.css";
 
 export default function Temperature() {
-  return (
-    <h1>
+    return(
+        <h1>
       <span class="current-temperature" id="actual-temperature">
         88°
       </span>
@@ -13,5 +13,5 @@ export default function Temperature() {
         <button id="celsius-link">C</button>
       </span>
     </h1>
-  );
+    )
 }
