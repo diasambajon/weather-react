@@ -6,7 +6,7 @@ import "./Weather.css";
 
 export default function Weather() {
     return(
-        <div class="container">
+        <div className="container">
         <div className="row">
         <div className="col">
         <Temperature />

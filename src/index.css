@@ -1,1 +1,8 @@
-
+App {
+  max-width: 500px;
+  margin: 100px auto;
+  font-family: "DM Sans", sans-serif;
+  background-image: url("https://images.pexels.com/photos/19670/pexels-photo.jpg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-19670.jpg&fm=jpg");
+  background-size: cover;
+  opacity: 0.8;
+}
