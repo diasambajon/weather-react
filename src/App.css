@@ -6,15 +6,16 @@ body {
   max-width: 500px;
   margin: 100px auto;
   font-family: "DM Sans", sans-serif;
-  background-image: url("https://images.pexels.com/photos/19670/pexels-photo.jpg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-19670.jpg&fm=jpg");
+  background-image: url("https://images.pexels.com/photos/1287089/pexels-photo-1287089.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1500");
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.8;
+  color: rgb(224, 224, 238);
 }
 .body {
   padding: 30px 50px;
-  border: 1px solid rgba(128, 128, 128, 0.5);
+  border: transparent;
   border-radius: 5px;
-  box-shadow: #793c3c 0 3px 1px 0;
-  background-color: rgba(248, 246, 253, 0.5);
+  box-shadow: rgba(26, 25, 29, 0.5) 0 3px 1px 0;
+  background-color: rgba(26, 25, 29, 0.5);
 }
