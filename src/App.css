@@ -6,14 +6,14 @@ body {
   max-width: 500px;
   margin: 100px auto;
   font-family: "DM Sans", sans-serif;
-  background-image: url("https://images.pexels.com/photos/1287089/pexels-photo-1287089.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1500");
+  background-image: url("https://images.pexels.com/photos/1287089/pexels-photo-1287089.jpeg?auto=compress&cs=tinysrgb&dpr=1");
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.8;
   color: rgb(224, 224, 238);
 }
 .body {
-  padding: 30px 50px;
+  padding: 30px 40px;
   border: transparent;
   border-radius: 5px;
   box-shadow: rgba(26, 25, 29, 0.5) 0 3px 1px 0;
