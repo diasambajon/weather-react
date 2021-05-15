@@ -51,7 +51,7 @@ export default function Weather() {
     <div className="col">
         <h1>
         <span className="current-temperature" id="actual-temperature">
-        {Math.round(temperature)}
+        {Math.round(temperature)}°
         </span>
         <span className="temperature-units" id="units">
         <button id="fahrenheit-link">C</button>|
