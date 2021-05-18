@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate.js";
 
 
 import "./Weather.css";
@@ -13,12 +14,15 @@ export default function Weather() {
     let [description, setDescription] = useState("");
     let [humidity, setHumidity] = useState("");
     let [wind, setWind] = useState("");
+    let [date,setDate] = useState("");
+
 
     function showTemperature(response) {
      setTemperature(response.data.main.temp);
      setDescription(response.data.weather[0].description);
      setHumidity(response.data.main.humidity);
      setWind(response.data.wind.speed);
+     setDate(response.data.dt * 1000);
     
     }
 
@@ -51,7 +55,7 @@ export default function Weather() {
     <div className="col">
         <h1>
         <span className="current-temperature" id="actual-temperature">
-        {Math.round(temperature)}°
+        {Math.round(temperature)}° 
         </span>
         <span className="temperature-units" id="units">
         <button id="fahrenheit-link">C</button>|
@@ -62,7 +66,9 @@ export default function Weather() {
     <div className="col">
         <h2>{city}</h2>
         <h3>{description}</h3>
-        <h4>Monday 9:00</h4>
+        <h4>
+            <FormattedDate date={new Date(date)} />
+        </h4>
         <div className="description">
         <p id="humidity">Humidity: {humidity}%</p>
         <p id="wind">Wind: {wind}mph</p>
