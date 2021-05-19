@@ -8,8 +8,8 @@ import "./Form.css";
 import "./Temperature.css";
 import "./Description.css"; 
 
-export default function Weather() {
-    let [city, setCity] = useState("");
+export default function Weather(props) {
+    let [city, setCity] = useState(props.defaultCity);
     let [temperature, setTemperature] = useState("");
     let [description, setDescription] = useState("");
     let [humidity, setHumidity] = useState("");
@@ -25,25 +25,27 @@ export default function Weather() {
      setDate(response.data.dt * 1000);
     
     }
-
-    function showForecast(event) {
-        event.preventDefault();
-
+    function search() {
         let apiKey = "ec8e69b1285b9aa207ab4f4d6f6be3e0";
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
         axios.get(apiUrl).then(showTemperature);
+    }
 
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        search();
     }
 
     function updateCity(event) {
         event.preventDefault();
         setCity(event.target.value);
     }
-
+    
     return(
     <div className="container">
-    <form className="search" id="city-form" onSubmit={showForecast}>
+    <form className="search" id="city-form" onSubmit={handleSubmit}>
         <input type="text" id="enter-city"
         placeholder="type a city..."
         className="city-input"  onChange={updateCity}/>
@@ -83,4 +85,6 @@ export default function Weather() {
         </footer>
     </div>
     )
+    search();
+
 }
