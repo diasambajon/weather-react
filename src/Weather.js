@@ -9,20 +9,20 @@ import "./Temperature.css";
 import "./Description.css"; 
 
 export default function Weather(props) {
+    let [weatherData, setWeatherData] = useState({ ready: false });
     let [city, setCity] = useState(props.defaultCity);
-    let [temperature, setTemperature] = useState("");
-    let [description, setDescription] = useState("");
-    let [humidity, setHumidity] = useState("");
-    let [wind, setWind] = useState("");
-    let [date,setDate] = useState("");
+    
 
 
     function showTemperature(response) {
-     setTemperature(response.data.main.temp);
-     setDescription(response.data.weather[0].description);
-     setHumidity(response.data.main.humidity);
-     setWind(response.data.wind.speed);
-     setDate(response.data.dt * 1000);
+
+     setWeatherData({
+     ready: true,
+     temperature: response.data.main.temp, 
+     description: response.data.weather[0].description,
+     humidity: response.data.main.humidity,
+     wind: response.data.wind.speed,
+     date: response.data.dt * 1000 });
     
     }
     function search() {
@@ -57,7 +57,7 @@ export default function Weather(props) {
     <div className="col">
         <h1>
         <span className="current-temperature" id="actual-temperature">
-        {Math.round(temperature)}° 
+        {Math.round(weatherData.temperature)}° 
         </span>
         <span className="temperature-units" id="units">
         <button id="fahrenheit-link">C</button>|
@@ -66,14 +66,14 @@ export default function Weather(props) {
         </h1>
     </div>
     <div className="col">
-        <h2>{city}</h2>
-        <h3>{description}</h3>
+        <h2>{weatherData.city}</h2>
+        <h3>{weatherData.description}</h3>
         <h4>
-            <FormattedDate date={new Date(date)} />
+            <FormattedDate date={new Date(weatherData.date)} />
         </h4>
         <div className="description">
-        <p id="humidity">Humidity: {humidity}%</p>
-        <p id="wind">Wind: {wind}mph</p>
+        <p id="humidity">Humidity: {weatherData.humidity}%</p>
+        <p id="wind">Wind: {weatherData.wind}mph</p>
         </div>
     </div>
     </div>
@@ -85,6 +85,6 @@ export default function Weather(props) {
         </footer>
     </div>
     )
-    search();
+    
 
 }
