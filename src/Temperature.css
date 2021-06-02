@@ -1,5 +1,6 @@
 h1 {
-  padding-top: 15px;
+  padding-top: 20px;
+  width: max-content;
 }
 
 .current-temperature {
@@ -9,8 +10,9 @@ h1 {
   font-size: 12px;
   vertical-align: text-top;
 }
-button {
+a {
   border: none;
+  background: transparent;
   text-decoration: none;
-  color: black;
+  color: white;
 }

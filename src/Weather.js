@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate.js";
+import Temperature from "./Temperature.js";
 
 
 import "./Weather.css";
 import "./Form.css";
 import "./Temperature.css";
 import "./Description.css"; 
+import "./Footer.css";
 
 export default function Weather(props) {
     let [weatherData, setWeatherData] = useState({ ready: false });
@@ -15,11 +17,14 @@ export default function Weather(props) {
 
 
     function showTemperature(response) {
-
+    console.log(response);
+     
      setWeatherData({
      ready: true,
+     city: response.data.name,
      temperature: response.data.main.temp, 
      description: response.data.weather[0].description,
+     iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
      humidity: response.data.main.humidity,
      wind: response.data.wind.speed,
      date: response.data.dt * 1000 });
@@ -43,6 +48,7 @@ export default function Weather(props) {
         setCity(event.target.value);
     }
     
+    if (weatherData.ready) {
     return(
     <div className="container">
     <form className="search" id="city-form" onSubmit={handleSubmit}>
@@ -50,19 +56,11 @@ export default function Weather(props) {
         placeholder="type a city..."
         className="city-input"  onChange={updateCity}/>
         <input type="submit" value="Search" className="submit"  />
-        <button id="current-location"><span role="img" aria-label="pinpoint empji">📍</span>
-        </button>
     </form>
     <div className="row">
     <div className="col">
         <h1>
-        <span className="current-temperature" id="actual-temperature">
-        {Math.round(weatherData.temperature)}° 
-        </span>
-        <span className="temperature-units" id="units">
-        <button id="fahrenheit-link">C</button>|
-        <button id="celsius-link">F</button>
-        </span>
+        <Temperature celsius={weatherData.temperature} dataIcon={weatherData.iconUrl} description={weatherData.description} />
         </h1>
     </div>
     <div className="col">
@@ -85,6 +83,12 @@ export default function Weather(props) {
         </footer>
     </div>
     )
+    } else {
+        search();
+        return(`Loading...`);
+    }
     
+
+
 
 }

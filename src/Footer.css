@@ -1,8 +1,11 @@
 .footer {
   text-align: center;
+  size: 12px;
 }
 a {
-  padding: 5px;
+  word-wrap: normal;
+  display: inline-block;
+  padding-right: 5px;
   text-decoration: none;
   color: rgb(248, 23, 7);
 }
