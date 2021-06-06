@@ -33,15 +33,16 @@ export default function Temperature(props) {
         </div>
         )
     } else {
+        let fahrenheit = (props.celsius * 9/5) + 32; 
         return (
             <div>
             <span className="current-temperature" id="actual-temperature">
             <img src={props.dataIcon} alt={props.description} />
-            {Math.round(props.celsius)}° 
+            {Math.round(fahrenheit)}° 
             </span>
             <span className="temperature-units" id="units">
-            <button id="celsius-link" onClick={convertToCelsius}>C</button>|
-            <button id="fahrenheit-link" >F</button>
+            <a href id="celsius-link" onClick={convertToCelsius}>C</a>|
+            <a href id="fahrenheit-link" >F</a>
             </span>
             </div>
             )
